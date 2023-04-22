@@ -9,21 +9,21 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-int i,  ind, j;
+int ind;
+char c;
 char *str;
 if (format == NULL)
 return (-1);
 va_start(args, format);
-i = 0;
 ind = 0;
-while (format[i] != '\0')
+while (*format != '\0')
 {
-if (format[i] == '%')
+if (*format == '%')
 {
-switch (format[i + 1])
+switch (*(format+1))
 {
 case 'c':
-char c = va_arg(args, int);
+c = va_arg(args, int);
 write(1, &c, 1);
 ind++;
 break;
@@ -37,12 +37,12 @@ ind++;
 }
 break;
 }
-i += 2;
+format += 2;
 }
 else
 {
-write(1, format[i], 1);
-i++;
+write(1, format, 1);
+format++;
 ind++;
 }
 }
