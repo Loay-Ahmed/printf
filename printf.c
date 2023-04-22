@@ -11,7 +11,6 @@ int _printf(const char *format, ...)
 va_list args;
 int i,  ind, j;
 char *str;
-char buffer[150000];
 if (format == NULL)
 return (-1);
 va_start(args, format);
@@ -24,13 +23,17 @@ if (format[i] == '%')
 switch (format[i + 1])
 {
 case 'c':
-buffer[ind++] = va_arg(args, int);
+char c = va_arg(args, int);
+write(1, &c, 1);
+ind++;
 break;
 case 's':
-str = va_arg(args, char*);
-for (j = 0; str[j] != '\0'; j++)
+str = va_arg(args, char *);
+while (*str != '\0')
 {
-buffer[ind++] = str[j];
+write(1, str, 1);
+str++;
+ind++;
 }
 break;
 }
@@ -38,12 +41,11 @@ i += 2;
 }
 else
 {
-buffer[ind++] = format[i];
+write(1, format[i], 1);
 i++;
+ind++;
 }
 }
-buffer[ind] = '\0';
-write(1, buffer, ind);
 va_end(args);
 return (ind);
 }
