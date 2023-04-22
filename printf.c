@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 va_list args;
 int i,  ind, j;
 char *str;
-char buffer[8096];
+char buffer[15000];
 if (format == NULL)
 return (0);
 va_start(args, format);
