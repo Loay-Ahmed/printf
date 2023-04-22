@@ -11,9 +11,9 @@ int _printf(const char *format, ...)
 va_list args;
 int i,  ind, j;
 char *str;
-char buffer[15000];
+char buffer[150000];
 if (format == NULL)
-return (0);
+return (-1);
 va_start(args, format);
 i = 0;
 ind = 0;
@@ -36,7 +36,6 @@ break;
 }
 i += 2;
 }
-
 else
 {
 buffer[ind++] = format[i];
