@@ -15,9 +15,10 @@ char buffer[1024];
 if (format == NULL)
 return (0);
 va_start(args, format);
+i = 0;
+ind = 0;
 while (format[i] != '\0')
 {
-
 if (format[i] == '%')
 {
 switch (format[i + 1])
@@ -42,6 +43,7 @@ buffer[ind++] = format[i];
 i++;
 }
 }
+buffer[ind] = '\0';
 write(1, buffer, ind);
 va_end(args);
 return (ind);
