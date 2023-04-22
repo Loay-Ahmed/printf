@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
 * _printf - c printf clone
 * @format:the string passed as a parameter
 *
