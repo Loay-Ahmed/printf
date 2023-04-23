@@ -11,9 +11,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char *str, c;
+	char c;
 	int ind = 0;
-
 	va_start(args, format);
 	if (!format && *format)
 		return (-1);
@@ -28,18 +27,11 @@ int _printf(const char *format, ...)
 					write(1, &c, 1), format++;
 					break;
 				case 's':
-					str = va_arg(args, char *);
-					while (*str)
-					{
-						write(1, str, 1);
-						str++;
-						ind++;
-					}
-					format++;
+				 ind += print_string(va_arg(args, char *));
+				 format++;
 					break;
 				default:
-					write(1, format, 1), ind++;
-					break;
+				  return (-1);
 			} format++;
 		}
 		else
