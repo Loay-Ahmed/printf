@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					format++;
 					break;
 				default:
-					write(1, format, 1), ind++;
+				  return (-1);
 					break;
 			} format++;
 		}
