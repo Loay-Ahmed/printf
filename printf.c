@@ -37,6 +37,10 @@ int _printf(const char *format, ...)
 						ind++;
 					}
 					break;
+				default:
+					write(1, format, 1);
+					ind++;
+					break;
 			}
 			format += 2;
 		}
