@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					str = va_arg(args, char *);
+					if (str == NULL)
+					  return (-1);
 					while (*str)
 					{
 						write(1, str, 1);
@@ -39,7 +41,6 @@ int _printf(const char *format, ...)
 					break;
 				default:
 				  return (-1);
-					break;
 			} format++;
 		}
 		else
