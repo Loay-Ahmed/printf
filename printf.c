@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 					ind++;
 					c = va_arg(args, int);
 					write(1, &c, 1);
+					format++;
 					break;
 				case 's':
 					str = va_arg(args, char *);
@@ -36,13 +37,14 @@ int _printf(const char *format, ...)
 						str++;
 						ind++;
 					}
+					format++;
 					break;
 				default:
 					write(1, format, 1);
 					ind++;
 					break;
 			}
-			format += 2;
+			format++;
 		}
 		else
 		{
