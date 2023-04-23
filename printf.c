@@ -24,10 +24,8 @@ int _printf(const char *format, ...)
 			switch (*(format + 1))
 			{
 				case 'c':
-					ind++;
-					c = va_arg(args, int);
-					write(1, &c, 1);
-					format++;
+					ind++, c = va_arg(args, int);
+					write(1, &c, 1), format++;
 					break;
 				case 's':
 					str = va_arg(args, char *);
@@ -40,17 +38,14 @@ int _printf(const char *format, ...)
 					format++;
 					break;
 				default:
-					write(1, format, 1);
-					ind++;
+					write(1, format, 1), ind++;
 					break;
-			}
-			format++;
+			} format++;
 		}
 		else
 		{
 			write(1, format, 1);
-			ind++;
-			format++;
+			ind++, format++;
 		}
 	}
 	va_end(args);
