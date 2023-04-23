@@ -4,7 +4,7 @@
 #include "stdarg.h"
 #include "stdlib.h"
 #include "unistd.h"
-
+int print_char(va_list args);
 int _printf(const char *format, ...);
 int print_string(const char *str);
 #endif
