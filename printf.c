@@ -11,8 +11,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char c;
 	int ind = 0;
+
 	va_start(args, format);
 	if (!format && *format)
 		return (-1);
@@ -23,19 +23,19 @@ int _printf(const char *format, ...)
 			switch (*(format + 1))
 			{
 				case 'c':
-					ind++, c = va_arg(args, int);
-					write(1, &c, 1), format++;
+					ind++;
+					print_char(args), format++;
 					break;
-				case 's':
-				 ind += print_string(va_arg(args, char *));
-				 format++;
-				        break;
-			        case '%':
-				  ind++;
-				  write(1, format, 1), format++;
+					case 's':
+					ind += print_string(va_arg(args, char *));
+					format++;
+					break;
+				case '%':
+					ind++;
+					write(1, format, 1), format++;
 					break;
 				default:
-				  return (-1);
+					return (-1);
 			} format++;
 		}
 		else
@@ -47,3 +47,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (ind);
 }
+
