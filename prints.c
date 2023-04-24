@@ -14,13 +14,13 @@ if (str == NULL)
 {
 str = "(null)";
 for (i = 0; str[i] != '\0'; i++)
-	write(1, &str[i], 1), len++;
+	_putchar(str[i]), len++;
 return (len);
 }
 else
 {
 	for (i = 0; str[i] != '\0'; i++)
-		write(1, &str[i], 1), len++;
+		_putchar(str[i]), len++;
 	return (len);
 }
 }
