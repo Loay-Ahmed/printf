@@ -12,8 +12,5 @@ int print_char(va_list args)
 	char c;
 
 	c = va_arg(args, int);
-	if (c == '\0')
-		return (-1);
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
