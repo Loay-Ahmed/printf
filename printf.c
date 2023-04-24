@@ -27,7 +27,8 @@ int _printf(const char *format, ...)
 					if (print_char(args) > 0)
 						format++;
 					else
-						print_string("%c"), format++;
+					write(1, '℅', 1), format++;
+write(1, 'c', 1);
 					break;
 				case 's':
 					ind += print_string(args);
