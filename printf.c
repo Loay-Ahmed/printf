@@ -24,7 +24,10 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					ind++;
-					(print_char(args) < 0) ? return (-1) : format++;
+					if (print_char(args) > 0)
+						format++;
+					else
+						return (-1);
 					break;
 				case 's':
 					ind += print_string(args);
