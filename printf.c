@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					ind++;
-					write(1, format, 1), format ++;
+					write(1, format, 1), format++;
 					break;
 				default:
 					ind++;
