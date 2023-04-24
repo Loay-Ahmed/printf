@@ -26,13 +26,10 @@ int _printf(const char *format, ...)
 					ind++;
 					print_char(args), format++;
 					break;
-					case 's':
-					ind += print_string(va_arg(args, char *));
+				case 's':
+					ind += print_string(args);
 					format++;
 					break;
-				case 's':
-					ind += print_string(va_arg(args, char *));
-					format++;
 				case '%':
 					ind++;
 					write(1, format, 1), format++;

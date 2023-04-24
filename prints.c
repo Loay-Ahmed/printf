@@ -4,9 +4,10 @@
  * @str: string that will be printed.
  * Return: the length of the string.
  */
-int print_string(const char *str)
+int print_string(va_list args)
 {
 int i, len;
+char *str = va_arg(args, char *);
 
 len = 0;
 if (str == NULL)
