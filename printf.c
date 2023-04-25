@@ -30,6 +30,10 @@ int _printf(const char *format, ...)
 					ind += print_string(args);
 					format++;
 					break;
+				case 'i':
+					ind += print_int(args);
+					format++;
+					break;
 				case '%':
 					ind += _putchar(*format), format++;
 					break;
