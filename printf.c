@@ -23,27 +23,25 @@ int _printf(const char *format, ...)
 			switch (*(format + 1))
 			{
 				case 'c':
-					ind++;
-					print_char(args);
-						format++;
+					ind += print_char(args);
+					format++;
 					break;
 				case 's':
 					ind += print_string(args);
 					format++;
 					break;
 				case '%':
-					ind++;
-					_putchar(*format), format++;
+					ind += _putchar(*format), format++;
 					break;
 				default:
-					ind++;
-					_putchar(*format);
+					ind += _putchar(*format);
+					break;
 			} format++;
 		}
 		else
 		{
-			write(1, format, 1);
-			ind++, format++;
+			ind += _putchar(*format);
+			format++;
 		}
 	}
 	va_end(args);

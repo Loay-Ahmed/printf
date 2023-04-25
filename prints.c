@@ -6,21 +6,21 @@
  */
 int print_string(va_list args)
 {
-int i, len;
-char *str = va_arg(args, char *);
+	int i;
+	char *str;
 
-len = 0;
-if (str == NULL)
-{
-str = "(null)";
-for (i = 0; str[i] != '\0'; i++)
-	_putchar(str[i]), len++;
-return (len);
-}
-else
-{
-	for (i = 0; str[i] != '\0'; i++)
-		_putchar(str[i]), len++;
-	return (len);
-}
+	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		str = "(null)";
+		for (i = 0; str[i] != '\0'; i++)
+			_putchar(str[i]);
+		return (i);
+	}
+	else
+	{
+		for (i = 0; str[i] != '\0'; i++)
+			_putchar(str[i]);
+		return (i);
+	}
 }
